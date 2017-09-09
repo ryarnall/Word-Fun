@@ -2,6 +2,8 @@
 	height: 300px;
 	width: 300px;
 	border: 2px solid black;
+	float: left;
+	margin-left: 25px;
 }
 
 .textInput {
@@ -12,14 +14,36 @@
 	border: 1px solid black;
 }
 
-#pigLatinSubmit {
+#pigLatinLabel {
+  font-size: 50px;
+  font-family: fantasy;
+  color: #540344;
+  text-align: center;
+}
+
+.submitButton {
 	margin-top: 10px;
 	margin-left: 10%;
 }
 
-#pigLatinResult {
+.outputContainer {
 	margin-left: 10%;
 	width: 80%;
 	height: 100px;
 	border: 1px solid black;
+}
+
+#brailleContainer {
+	width: 600px;
+}
+
+#brailleLabel {
+  font-size: 50px;
+  font-family: monospace;
+  color: #383737;
+  text-align: center;
+}
+
+#brailleResult {
+	margin-top: 15px;
 }
