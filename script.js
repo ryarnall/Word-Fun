@@ -1,46 +1,40 @@
-$("#pigLatinSubmit").click(changeWord);
+$("#pigLatinSubmit").click(translate);
 
-function changeWord() {
-	var $words = ($("#pigLatinInput").val()).toString();
-	// var firstLetter = $words.slice(0,1);
-	// var newWord = $words.slice(1) + firstLetter;
+//click handler for "Run!" button
+function translate() {
 
-	// newWord += "ay";
-	// $("#pigLatinResult").text(newWord);
-	// }
+	//changes the user input from object to string
+	var $words = $("#pigLatinInput").val().toString();
+	//splits the string into words (splitting at spaces)
+	var wordList = $words.split(" ");
 
+	//empty string that the translated words will end up in
+	var translated = "";
 
-	//creates an array of each space index in the user inputted string
-	var indices = [];
-	for (var i = 0; i < $words.length; i++) {
-		if ($words[i] == " ") {
-			indices.push(i);
-		}
-	}
-
-	//separates the words using the space indices stored in the indices variable
-	var wordList = [];
-	for (var i = 0; i < indices.length; i++) {
-		if (i == 0) {
-			wordList.push($words.slice(0, indices[i]));
-		} else {
-			wordList.push($words.slice(indices[i-1] + 1, indices[i]));
-		}
-	}
-	wordList.push($words.slice(indices[indices.length-1] + 1, $words.length));
-
-
-	//changes each word in the wordList to Pig Latin and creates a new string with the changed words
-	var newWords = "";
+	//interates over every word in the list
 	for (var i = 0; i < wordList.length; i++) {
-		var firstLetter = wordList[i].slice(0,1);
-		var newWord = wordList[i].slice(1) + firstLetter;
-		newWord += "ay ";
-		newWords += newWord;
-	}
+		//only acts if there is content at the index (solves problem of excess spaces in user input)
+		if (wordList[i]) {
+			var vowels = ["a", "e", "i", "o", "u"];
 
-	//applies the new string of Pig Latin to the text of the paragraph box
-	$("#pigLatinResult").text(newWords);
+			//if the word starts with a vowel, just "way" is added to the end of it
+			if (vowels.indexOf(wordList[i][0].toLowerCase()) >= 0) {
+				var newWord = wordList[i] + "way ";
+				translated += newWord;
+			} else {
+				//grabs the first letter of each word
+				var firstLetter = wordList[i].slice(0,1);
+				//sticks the first letter on the end of word
+				var newWord = wordList[i].slice(1) + firstLetter;
+				newWord += "ay ";
+				//adds new word to the translated string
+				translated += newWord;
+			}
+		}
+	}
+	//displays the translated string in the paragraph div
+	$("#pigLatinResult").text(translated);
 }
+
 
 
