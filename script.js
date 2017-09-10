@@ -37,72 +37,32 @@ function toPigLatin() {
 }
 
 
-
+//click handler for "Braille It!" button
 function toBraille() {
 	$("#brailleResult").empty();
+	//separates the user input into a "list" of individual characters
 	var letters = $("#brailleInput").val().toString().split("");
 	var braille = "";
 
 	for (var i = 0; i < letters.length; i++) {
 		var letterLower = letters[i].toLowerCase(); 
 
-		if (letterLower == "a") {
-			braille += ("<img src='http://braillebug.afb.org/Braille_Letters/a.gif'>");
-		} else if (letterLower == "b") {
-			braille += ("<img src='http://braillebug.afb.org/Braille_Letters/b.gif'>");
-		} else if (letterLower == "c") {
-			braille += ("<img src='http://braillebug.afb.org/Braille_Letters/c.gif'>");
-		} else if (letterLower == "d") {
-			braille += ("<img src='http://braillebug.afb.org/Braille_Letters/d.gif'>");
-		} else if (letterLower == "e") {
-			braille += ("<img src='http://braillebug.afb.org/Braille_Letters/e.gif'>");
-		} else if (letterLower == "f") {
-			braille += ("<img src='http://braillebug.afb.org/Braille_Letters/f.gif'>");
-		} else if (letterLower == "g") {
-			braille += ("<img src='http://braillebug.afb.org/Braille_Letters/g.gif'>");
-		} else if (letterLower == "h") {
-			braille += ("<img src='http://braillebug.afb.org/Braille_Letters/h.gif'>");
-		} else if (letterLower == "i") {
-			braille += ("<img src='http://braillebug.afb.org/Braille_Letters/i.gif'>");
-		} else if (letterLower == "j") {
-			braille += ("<img src='http://braillebug.afb.org/Braille_Letters/j.gif'>");
-		} else if (letterLower == "k") {
-			braille += ("<img src='http://braillebug.afb.org/Braille_Letters/k.gif'>");
-		} else if (letterLower == "l") {
-			braille += ("<img src='http://braillebug.afb.org/Braille_Letters/l.gif'>");
-		} else if (letterLower == "m") {
-			braille += ("<img src='http://braillebug.afb.org/Braille_Letters/m.gif'>");
-		} else if (letterLower == "n") {
-			braille += ("<img src='http://braillebug.afb.org/Braille_Letters/n.gif'>");
-		} else if (letterLower == "o") {
-			braille += ("<img src='http://braillebug.afb.org/Braille_Letters/o.gif'>");
-		} else if (letterLower == "p") {
-			braille += ("<img src='http://braillebug.afb.org/Braille_Letters/p.gif'>");
-		} else if (letterLower == "q") {
-			braille += ("<img src='http://braillebug.afb.org/Braille_Letters/q.gif'>");
-		} else if (letterLower == "r") {
-			braille += ("<img src='http://braillebug.afb.org/Braille_Letters/r.gif'>");
-		} else if (letterLower == "s") {
-			braille += ("<img src='http://braillebug.afb.org/Braille_Letters/s.gif'>");
-		} else if (letterLower == "t") {
-			braille += ("<img src='http://braillebug.afb.org/Braille_Letters/t.gif'>");
-		} else if (letterLower == "u") {
-			braille += ("<img src='http://braillebug.afb.org/Braille_Letters/u.gif'>");
-		} else if (letterLower == "v") {
-			braille += ("<img src='http://braillebug.afb.org/Braille_Letters/v.gif'>");
-		} else if (letterLower == "w") {
-			braille += ("<img src='http://braillebug.afb.org/Braille_Letters/w.gif'>");
-		} else if (letterLower == "x") {
-			braille += ("<img src='http://braillebug.afb.org/Braille_Letters/x.gif'>");
-		} else if (letterLower == "y") {
-			braille += ("<img src='http://braillebug.afb.org/Braille_Letters/y.gif'>");
-		} else if (letterLower == "z") {
-			braille += ("<img src='http://braillebug.afb.org/Braille_Letters/z.gif'>");
-		} else {
+		if (letterLower == " ") {
 			braille += ("<img src='https://dummyimage.com/30x42/fff/fff.gif'>");
+		} else if (letterLower == ".") {
+			braille += (`<img src='http://braillebug.afb.org/Braille_Letters/period.gif'>`)
+		} else if (letterLower == ",") {
+			braille += (`<img src='http://braillebug.afb.org/Braille_Letters/comma.gif'>`)
+		} else if (letterLower == "?") {
+			braille += (`<img src='http://braillebug.afb.org/Braille_Letters/question_mark.gif'>`)
+		} else if (letterLower == "'") {
+			braille += (`<img src='http://braillebug.afb.org/Braille_Letters/apostrophe.gif'>`)
+		} else if (letterLower == "#") {
+			braille += (`<img src='http://braillebug.afb.org/Braille_Letters/no.gif'>`)
+		}	else {
+			braille += (`<img src='http://braillebug.afb.org/Braille_Letters/${letterLower}.gif'>`);
 		}
 	}
-
 	$("#brailleResult").append(braille);
 }
 

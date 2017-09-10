@@ -35,6 +35,7 @@
 
 #brailleContainer {
 	width: 600px;
+	height: 400px;
 }
 
 #brailleLabel {
@@ -46,4 +47,5 @@
 
 #brailleResult {
 	margin-top: 15px;
+	height: 200px;
 }
